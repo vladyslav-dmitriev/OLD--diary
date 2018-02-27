@@ -1,7 +1,4 @@
-
-
-// Форма создания заметки
-
+// create form for note
 function openEditForm() {
 	$('.overlay').addClass('visible');
 	formEdit.addClass('formVisible');
@@ -22,8 +19,7 @@ $('.formEdit_button__exit').on('click', function(e) {
 	closeEditForm();
 });
 
-// Форма создания раздела
-
+// create form for section
 function openAddSection() {
 	$('.overlay').addClass('visible');
 	$('.addSection').addClass('formVisible');
@@ -44,8 +40,7 @@ $('.addSection_button__exit').on('click', function(e) {
 	closeAddSection();
 });
 
-// Панель управления
-
+// control panel
 function closeNavigationMenu(e) {
 	e.preventDefault();
 	$('.navigationMenu_line__top').toggleClass('navigationMenu_line__topOpen');
@@ -63,8 +58,7 @@ $('.mainMenuConfig_listTask__createNote').on('click', function(e) {
 	openEditForm();
 });
 
-// Информационное сообщение
-
+// information message
 const formEdit = $('.formEdit');
 const formAddSection = $('.addSection');
 const informMessage = $('.informMessage');
@@ -83,8 +77,7 @@ informMessage.on('click', function() {
 	closeInformMessage();
 });
 
-// Проверка валидности формы
-
+// form validity check 
 function validationTitle() {
 
     const formEditInputTitle = document.forms.formEdit.elements.title.value;
@@ -150,8 +143,7 @@ formEdit.on('submit', function(e) {
 	}
 });
 
-// Добавление элементов на страницу
-
+// add items on a page
 function formatDate(time) {
 	var diff = new Date();
 	alert(diff);
@@ -163,8 +155,7 @@ function formatDate(time) {
 }
 
 
-// Получение времени
-
+// get time
 function getTheTime(data) {
 
 	function twoCharInt(anInt) {
@@ -203,8 +194,7 @@ var showAllNotes = function(note) {
 	"</div><div class='" + "note_message__small" + "'>" + note.text + "</div></div><div class='" + "note_Panel" + "'><a href=" + "#" + "><i class='" + "fa fa-pencil" + "'></i></a><a data-id=" + note.id + " href=" + "#" + "><i class='" + "fa fa-close" + "'></i></a></div></div>";
 };
 
-// Обработчики AJAX
-
+// AJAX handlers
 function getAllNotes() {
 	$.ajax({
 		url: '/api/notes',
@@ -251,15 +241,13 @@ function deleteNote(id) {
 	});
 };
 
-// Очистка формы
-
+// reset form
 function resetForm() {
 	document.forms.formEdit.elements.title.value = '';
 	document.forms.formEdit.elements.message.value = '';
 };
 
-// Удаление заметки
-
+// delete note
 $('body').on('click', '.notesList_note a', function() {
 	var id = $(this).data('id');
 	deleteNote(id);
@@ -268,8 +256,7 @@ $('body').on('click', '.notesList_note a', function() {
 
 getAllNotes();
 
-// Слайдер
-
+// slider
 setInterval(function() {
 	$('.slider_nextSlide').trigger('click');
 }, 2000);
@@ -390,8 +377,7 @@ $('.slider_glob').on('click', function() {
 	}
 });
 
-// Отображение товаров
-
+// show products
 var showProducts = function(product) {
 	return '<div class="' + 'product' + '"><div class="' + 'product_name' + '">' + product.name + '</div>' +
 	'<div class="' + 'product_price' + '">Стоимость: ' + product.price + ' грн' + '</div><div class="' + 'product_color' + '">Цвет: ' + product.color + '</div></div>'
@@ -415,8 +401,7 @@ function getProducts() {
 
 getProducts();
 
-// Фильтр по цене
-
+// filter by price
 function filtresPrice(price) {
 	$.ajax({
 		url: '/api/products/'+price,
@@ -433,8 +418,7 @@ function filtresPrice(price) {
 	})
 };
 	
-// Фильтр по цвету
-
+// filter by color
 function filterOut(filterSelectPrice, filterCheckColor) {
 	$.ajax({
 		url: 'api/productsFilter',
@@ -469,8 +453,7 @@ $('.filter_button').on('click', function(e) {
 	filterOut(filterSelectPrice, filterCheckColor);
 });
 
-// Показать все разделы
-
+// show all sections
 function paintSection(section) {
 	return '<option value="' + section.id + '">' + section.value + '</option>';
 };
@@ -491,8 +474,7 @@ function showAllSections() {
 	});
 };
 
-// Добавить раздел
-
+// add section
 function addNewSection(section) {
 	$.ajax({
 		url: '/api/section',
@@ -516,8 +498,7 @@ $('.addSection_button__save').on('click', function(e) {
 	addNewSection(section);
 });
 
-// Удаление раздела
-
+// delete section
 function deleteSection(id) {
 	$.ajax({
 		url: '/api/section/'+id,
@@ -544,8 +525,7 @@ $('.addSection_delete').on('click', function(e) {
 
 showAllSections();
 
-// Фильтр разделов по дате
-
+// filter sections by date
 function ajaxload(){
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
@@ -560,4 +540,3 @@ function ajaxload(){
     xhr.open('GET', 'ajax.php');
     xhr.send();
 }
-

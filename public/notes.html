@@ -11,17 +11,14 @@
 	<div class="informMessage"></div>
 
 <form class="addSection" name="addSection">
-	<legend class="form_legend"><i class="fa fa-file-o"></i>Добавление раздела</legend>
+	<legend class="form_legend"><i class="fa fa-file-o"></i>Управление категориями</legend>
 	
-	<label for="section" class="form_label">Существующие разделы</label>
-	<select name="section" class="form_section">
-		<option value="work">Работа</option>
-		<option value="flat">Квартира</option>
-		<option value="cottage">Дача</option>
-	</select>
+	<label for="section" class="form_label">Существующие категории</label>
+	<select name="section" class="form_section form_section__addSection"></select>
+	<a href="#" class="addSection_delete"><i class="fa fa-times"></i></a>
 
-	<label for="title" class="form_label">Название раздела</label>
-	<input type="text" name="title" class="form_title">
+	<label for="title" class="form_label">Название новой категории</label>
+	<input type="text" name="title" class="form_title addSection_title">
 	
 	<button type="submit" class="form_button form_button__save addSection_button__save">Добавить</button>
 	<button class="form_button form_button__exit addSection_button__exit">Отменить</button>
@@ -30,11 +27,8 @@
 <form class="formEdit" name="formEdit">
 	<legend class="form_legend"><i class="fa fa-file-o"></i>Добавление заметки</legend>
 	
-	<label for="section" class="form_label">Выберите раздел</label>
+	<label for="section" class="form_label">Выберите категорию</label>
 	<select name="section" class="form_section">
-		<option value="work">Работа</option>
-		<option value="flat">Квартира</option>
-		<option value="cottage">Дача</option>
 	</select>
 
 	<label for="title" class="form_label">Название заметки</label>
@@ -50,13 +44,13 @@
 	<header class="header">
 		<div class="header_logo">
 			<img class="logo" src="img/logo.png" alt="NOTES">
-			<div class="header_title">DIARY PRO<span>Персональный онлайн блокнот</span></div>
+			<div class="header_title">account keeper<span>Personal notebook of logins & passwords</span></div>
 		</div>
 		<div class="header_menu">
 			<nav>
 				<ul class="menuLinks">
 					<li><a href="/notes" class="menuLinks_link menuLinks_link__active">Заметки</a></li>
-					<li><a href="#" class="menuLinks_link">Финансы</a></li>
+					<li><a href="/finance" class="menuLinks_link">Финансы</a></li>
 					<li><a href="/tools" class="menuLinks_link">Инструменты</a></li>
 				</ul>
 			</nav>
@@ -74,8 +68,8 @@
 				<div class="mainMenuConfig_title">Панель управления</div>
 				<nav>
 					<ul class="mainMenuConfig_listTask">
-						<li class="mainMenuConfig_listTask__link"><i class="fa fa-plus"></i><a class="mainMenuConfig_listTask__createNote" href="#">Создать заметку</a></li>
-						<li class="mainMenuConfig_listTask__link"><i class="fa fa-plus-circle"></i><a class="mainMenuConfig_listTask__createSection" href="#">Создать категорию</a></li>
+						<li class="mainMenuConfig_listTask__link"><i class="fa fa-file"></i><a class="mainMenuConfig_listTask__createNote" href="#">Мои заметки</a></li>
+						<li class="mainMenuConfig_listTask__link"><i class="fa fa-folder-open"></i><a class="mainMenuConfig_listTask__createSection" href="#">Мои категории</a></li>
 					</ul>
 				</nav>
 				<div class="mainMenuConfig_title">Другое</div>
@@ -98,18 +92,6 @@
 		<div class="footer_copyright">
 			<div class="copyright_top"><span>DIARY PRO</span> - Дмитриев Владислав</div>
 			<div class="copyright_bottom">Все права защищены &copy; 2017</div>
-		</div>
-		
-		<div class="footer_menu">
-			<nav>
-				<ul class="footer_links">
-					<li class="footer_link"><a href="#">Политика конфиденциальности</a></li>
-					<li class="footer_link"><a href="#">Условия использования</a></li>
-					<li class="footer_link"><a href="#">Блог</a></li>
-					<li class="footer_link"><a href="#">Проект</a></li>
-					<li class="footer_link"><a href="#">Контакты</a></li>
-				</ul>
-			</nav>
 		</div>
 
 		<div class="footer_social">

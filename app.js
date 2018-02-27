@@ -1,43 +1,40 @@
-var express    = require('express'),
-	bodyParser = require('body-parser'),
-	fs 		   = require('fs'),
-	path 	   = require('path');
+const express    = require('express'),
+	  bodyParser = require('body-parser'),
+	  fs 		 = require('fs'),
+	  path 	     = require('path');
 
 const app = express();
-var jsonParser = bodyParser.json();
+const jsonParser = bodyParser.json();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// // Главная страница
-// app.get('/', (req, res) => {
-// 	res.sendFile(__dirname + '/index2.html');
-// });
+// paths
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/public/index.html');
+});
 
-// Заметки
 app.get('/notes', (req, res) => {
-	res.sendFile(__dirname + '/notes.html');
+	res.sendFile(__dirname + '/public/notes.html');
 });
 
-// Финансы
 app.get('/finance', (req, res) => {
-	res.sendFile(__dirname + '/finance.html');
+	res.sendFile(__dirname + '/public/finance.html');
 });
 
-// Инструменты
 app.get('/tools', (req, res) => {
-	res.sendFile(__dirname + '/tools.html');
+	res.sendFile(__dirname + '/public/tools.html');
 });
 
-// Вернуть все заметки
+// show all notes
 app.get('/api/notes', (req, res) => {
-	const content = fs.readFileSync('notes.json', 'utf8');
+	const content = fs.readFileSync('json/notes.json', 'utf8');
 	const notes = JSON.parse(content);
 	res.send(notes);
 });
 
-// Добавление заметки
+// add note
 app.post('/api/addnote', jsonParser, (req, res) => {
-	const content = fs.readFileSync('notes.json', 'utf8');
+	const content = fs.readFileSync('json/notes.json', 'utf8');
 	var notes = JSON.parse(content);
 
 	const section = req.body.section;
@@ -57,15 +54,14 @@ app.post('/api/addnote', jsonParser, (req, res) => {
 	notes.push(note);
 
 	const data = JSON.stringify(notes);
-	fs.writeFileSync('notes.json', data);
+	fs.writeFileSync('json/notes.json', data);
 	res.status(200).send();
 
 });
 
-// Удаление заметки
-
+// delete note
 app.delete('/api/notes/:id', (req, res) => {
-	const content = fs.readFileSync('notes.json', 'utf8');
+	const content = fs.readFileSync('json/notes.json', 'utf8');
 	const notes = JSON.parse(content);
 
 	const id = req.params.id;
@@ -81,23 +77,21 @@ app.delete('/api/notes/:id', (req, res) => {
 	if (index > -1) {
 		var note = notes.splice(index, 1)[0];
 		var data = JSON.stringify(notes);
-		fs.writeFileSync('notes.json', data);
+		fs.writeFileSync('json/notes.json', data);
 		res.send(note);
 	}
 
 });
 
-
-// Запрос товаров
-
+// request for products
 app.get('/api/products', (req, res) => {
-	const content = fs.readFileSync('products.json', 'utf8');
+	const content = fs.readFileSync('json/products.json', 'utf8');
 	const products = JSON.parse(content);
 	res.send(products);
 });
 
 app.post('/api/productsFilter', jsonParser, (req, res) => {
-	const content = fs.readFileSync('products.json', 'utf8');
+	const content = fs.readFileSync('json/products.json', 'utf8');
 	const products = JSON.parse(content);
 	const price = req.body.price;
 	const color = req.body.color; 
@@ -123,7 +117,7 @@ app.post('/api/productsFilter', jsonParser, (req, res) => {
 		productsColor = products.slice();
 	}
 
-	// Цена 
+	// price 
 	function sortFirstRich(productA, productB) {
 		return productB.price - productA.price;
 	};
@@ -142,18 +136,16 @@ app.post('/api/productsFilter', jsonParser, (req, res) => {
 
 });
 
-// Показать все разделы
-
+// show all sections
 app.get('/api/sections', (req, res) => {
-	const content = fs.readFileSync('sections.json', 'utf8');
+	const content = fs.readFileSync('json/sections.json', 'utf8');
 	const sections = JSON.parse(content);
 	res.send(sections);
 });
 
-// Добавить раздел
-
+// add section
 app.post('/api/section', jsonParser, (req, res) => {
-	const content = fs.readFileSync('sections.json', 'utf8');
+	const content = fs.readFileSync('json/sections.json', 'utf8');
 	var sections = JSON.parse(content);
 	const value = req.body.section;
 	var id;
@@ -169,15 +161,14 @@ app.post('/api/section', jsonParser, (req, res) => {
 	sections.push(section);
 
 	const data = JSON.stringify(sections);
-	fs.writeFileSync('sections.json', data);
+	fs.writeFileSync('json/sections.json', data);
 	res.status(200).send();	
 
 });
 
-// Удалить раздел
-
+// delete section
 app.delete('/api/section/:id', (req, res) => {
-	const content = fs.readFileSync('sections.json', 'utf8');
+	const content = fs.readFileSync('json/sections.json', 'utf8');
 	var sections = JSON.parse(content);
 	const id = req.params.id;
 	var index = -1;
@@ -196,14 +187,13 @@ app.delete('/api/section/:id', (req, res) => {
 	if (index > -1) {
 		var section = sections.splice(index, 1)[0];
 		var data = JSON.stringify(sections);
-		fs.writeFileSync('sections.json', data);
+		fs.writeFileSync('json/sections.json', data);
 		res.send(true);
 	}
 
 });
 
-// Настройки сервера
-
+// server settings
 app.listen(3000, () => {
 	console.log('work in port 3000');
 });
