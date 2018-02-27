@@ -1,0 +1,50 @@
+[{
+	"name":"Товар 1",
+	"price":"10",
+	"color":"white"
+},
+{
+	"name":"Товар 2",
+	"price":"20",
+	"color":"blue"
+},
+{
+	"name":"Товар 3",
+	"price":"30",
+	"color":"red"
+},
+{
+	"name":"Товар 4",
+	"price":"40",
+	"color":"blue"
+},
+{
+	"name":"Товар 5",
+	"price":"50",
+	"color":"red"
+},
+{
+	"name":"Товар 6",
+	"price":"60",
+	"color":"blue"
+},
+{
+	"name":"Товар 7",
+	"price":"70",
+	"color":"red"
+},
+{
+	"name":"Товар 8",
+	"price":"80",
+	"color":"blue"
+},
+{
+	"name":"Товар 9",
+	"price":"90",
+	"color":"red"
+},
+{
+	"name":"Товар 10",
+	"price":"100",
+	"color":"white"
+}]

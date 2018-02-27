@@ -1,0 +1,131 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<title>DIARY PRO - персональный онлайн блокнот</title>
+</head>
+<body class="body">
+
+	<div class="overlay"></div>
+	<div class="informMessage"></div>
+
+<form class="addSection" name="addSection">
+	<legend class="form_legend"><i class="fa fa-file-o"></i>Добавление раздела</legend>
+	
+	<label for="section" class="form_label">Существующие разделы</label>
+	<select name="section" class="form_section">
+		<option value="work">Работа</option>
+		<option value="flat">Квартира</option>
+		<option value="cottage">Дача</option>
+	</select>
+
+	<label for="title" class="form_label">Название раздела</label>
+	<input type="text" name="title" class="form_title">
+	
+	<button type="submit" class="form_button form_button__save addSection_button__save">Добавить</button>
+	<button class="form_button form_button__exit addSection_button__exit">Отменить</button>
+</form>
+
+<form class="formEdit" name="formEdit">
+	<legend class="form_legend"><i class="fa fa-file-o"></i>Добавление заметки</legend>
+	
+	<label for="section" class="form_label">Выберите раздел</label>
+	<select name="section" class="form_section">
+		<option value="work">Работа</option>
+		<option value="flat">Квартира</option>
+		<option value="cottage">Дача</option>
+	</select>
+
+	<label for="title" class="form_label">Название заметки</label>
+	<input type="text" name="title" class="form_title formEdit_title">
+	
+	<label for="message" class="form_label">Содержание заметки</label>
+	<textarea name="message" class="form_message formEdit_message"></textarea>
+	
+	<button type="submit" class="form_button form_button__save formEdit_button__save">Сохранить</button>
+	<button class="form_button form_button__exit formEdit_button__exit">Отменить</button>
+</form>
+
+	<header class="header">
+		<div class="header_logo">
+			<img class="logo" src="img/logo.png" alt="NOTES">
+			<div class="header_title">DIARY PRO<span>Персональный онлайн блокнот</span></div>
+		</div>
+		<div class="header_menu">
+			<nav>
+				<ul class="menuLinks">
+					<li><a href="/notes" class="menuLinks_link menuLinks_link__active">Заметки</a></li>
+					<li><a href="#" class="menuLinks_link">Финансы</a></li>
+					<li><a href="/tools" class="menuLinks_link">Инструменты</a></li>
+				</ul>
+			</nav>
+		</div>
+		<a href="#" class="navigationMenu"><div class="navigationMenu_container">
+			<div class="navigationMenu_line__top"></div>
+			<div class="navigationMenu_line__middle"></div>
+			<div class="navigationMenu_line__bottom"></div>
+		</div></a>
+	</header>
+
+		<section class="main">
+	
+			<div class="mainMenuConfig">
+				<div class="mainMenuConfig_title">Панель управления</div>
+				<nav>
+					<ul class="mainMenuConfig_listTask">
+						<li class="mainMenuConfig_listTask__link"><i class="fa fa-plus"></i><a class="mainMenuConfig_listTask__createNote" href="#">Создать заметку</a></li>
+						<li class="mainMenuConfig_listTask__link"><i class="fa fa-plus-circle"></i><a class="mainMenuConfig_listTask__createSection" href="#">Создать категорию</a></li>
+					</ul>
+				</nav>
+				<div class="mainMenuConfig_title">Другое</div>
+				<nav>
+					<ul class="mainMenuConfig_listTask">
+						<li class="mainMenuConfig_listTask__link"><i class="fa fa-cog"></i><a href="#">Настройки</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="main_Panel">
+				<a href="#" class="addNotes">Создать заметку</a>
+			</div>
+
+			<div class="notesList"></div>
+
+		</section>
+
+	<footer class="footer">
+		<div class="footer_copyright">
+			<div class="copyright_top"><span>DIARY PRO</span> - Дмитриев Владислав</div>
+			<div class="copyright_bottom">Все права защищены &copy; 2017</div>
+		</div>
+		
+		<div class="footer_menu">
+			<nav>
+				<ul class="footer_links">
+					<li class="footer_link"><a href="#">Политика конфиденциальности</a></li>
+					<li class="footer_link"><a href="#">Условия использования</a></li>
+					<li class="footer_link"><a href="#">Блог</a></li>
+					<li class="footer_link"><a href="#">Проект</a></li>
+					<li class="footer_link"><a href="#">Контакты</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="footer_social">
+			<nav>
+				<ul class="social">
+					<li class="social_link"><a href="#"><i class="fa fa-vk"></i></a></li>
+					<li class="social_link"><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li class="social_link"><a href="#"><i class="fa fa-instagram"></i></a></li>
+					<li class="social_link"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+	</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

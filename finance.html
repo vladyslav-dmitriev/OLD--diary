@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<title>DIARY PRO - персональный онлайн блокнот</title>
+</head>
+<body class="body">
+
+	<div class="overlay"></div>
+	<div class="informMessage"></div>
+
+	<header class="header">
+		<div class="header_logo">
+			<img class="logo" src="img/logo.png" alt="NOTES">
+			<div class="header_title">DIARY PRO<span>Персональный онлайн блокнот</span></div>
+		</div>
+		<div class="header_menu">
+			<nav>
+				<ul class="menuLinks">
+					<li><a href="/notes" class="menuLinks_link">Заметки</a></li>
+					<li><a href="/finance" class="menuLinks_link menuLinks_link__active">Финансы</a></li>
+					<li><a href="/tools" class="menuLinks_link">Инструменты</a></li>
+				</ul>
+			</nav>
+		</div>
+		<a href="#" class="navigationMenu"><div class="navigationMenu_container">
+			<div class="navigationMenu_line__top"></div>
+			<div class="navigationMenu_line__middle"></div>
+			<div class="navigationMenu_line__bottom"></div>
+		</div></a>
+	</header>
+
+		<section class="mainFinance">
+			<div class="filters">
+				<h3 class="filters_h3">Фильтры</h3>
+				<h4 class="filters_h4">По цене:</h4>
+				<select name="price" class="filters_price">
+					<option value="low" class="filters_price__low">Сначала дешевые</option>
+					<option value="rich" class="filters_price__rich">Сначала дорогие</option>
+				</select>
+				<h4 class="filters_h4">По цвету:</h4>
+				<form class="formSortColor" name="formSortColor">
+					<label for="color">
+						<input type="checkbox" value="red" name="color" class="filter_color">
+						Красный
+					</label>
+					<label for="color">
+						<input type="checkbox" value="blue" name="color" class="filter_color">
+						Синий
+					</label>
+					<label for="color">
+						<input type="checkbox" value="white" name="color" class="filter_color">
+						Белый
+					</label>
+					<button type="submit" class="filter_button">Отобразить</button>
+				</form>
+			</div>
+			<div class="products"></div>
+
+		</section>
+
+	<footer class="footer">
+		<div class="footer_copyright">
+			<div class="copyright_top"><span>DIARY PRO</span> - Дмитриев Владислав</div>
+			<div class="copyright_bottom">Все права защищены &copy; 2017</div>
+		</div>
+
+		<div class="footer_social">
+			<nav>
+				<ul class="social">
+					<li class="social_link"><a href="#"><i class="fa fa-vk"></i></a></li>
+					<li class="social_link"><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li class="social_link"><a href="#"><i class="fa fa-instagram"></i></a></li>
+					<li class="social_link"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+	</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
